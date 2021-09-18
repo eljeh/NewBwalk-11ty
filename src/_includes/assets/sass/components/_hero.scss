@@ -1,0 +1,77 @@
+@use '../abstracts'as *;
+
+.hero {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  picture {
+    overflow: hidden;
+  }
+
+  picture,
+  img {
+    min-width: 100%;
+    max-width: unset;
+    width: auto;
+    min-height: var(--min-hero-img-h);
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  &-copy {
+    color: white;
+    padding: 2em;
+    line-height: 1.618;
+    position: absolute;
+    left: 1em;
+    right: 1.75em;
+    bottom: 2em;
+    max-width: 72ch;
+    transform: translateX(0.5em);
+    backdrop-filter: blur(0.125em);
+    background: hsl(207deg 100% 30% / 60%);
+    text-shadow: 2px 2px 10px black, -2px -2px 10px black;
+    box-shadow: -1px 1px 13px 3px #00000042;
+    border-radius: var(--std-border-radius);
+    border-top: 1px solid hsl(207deg 100% 90% / 50%);
+    border-left: 1px solid hsl(207deg 100% 70% / 50%);
+    border-right: 1px solid hsl(207deg 100% 30% / 40%);
+    border-bottom: 1px solid hsl(207deg 100% 20% / 50%);
+
+    @include media-desktop {
+      right: unset;
+      animation: slideLeft 4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    &:before {
+      content: ' ';
+      border-radius: 10px;
+      width: 99%;
+      height: 94%;
+      display: block;
+      position: absolute;
+      margin: -1.75em;
+      z-index: -1;
+      filter: blur(5px);
+      background: linear-gradient(-15deg,
+          hsl(207deg 100% 70% / 80%) 0%,
+          hsl(207deg 100% 90% / 0%) 35%,
+          hsl(207deg 100% 90% / 0%) 65%,
+          hsl(207deg 100% 30% / 80%) 100%);
+    }
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    left: -100vw;
+  }
+
+  to {
+    left: 1em;
+  }
+}

@@ -1,0 +1,54 @@
+{% set navPages = collections.all | eleventyNavigation %}
+<ul class="main-nav" aria-label="Main Navigation" role="menu">
+  <li role="menuitem" class="hasSubmenu">
+    <input id="FindAnApartment" type="checkbox" class="submenuCheckbox">
+    <label for="FindAnApartment" class="underline-ani">Find An Apartment</label>
+    <ul class="submenu-nav" aria-label="" role="menu">
+      <li role="menuitem"><a href="#" aria-label="" >Privince & City Breakdown</a></li>
+      <li role="menuitem"><a href="#" aria-label="" >Renting with Pets</a></li>
+      <li role="menuitem"><a href="#" aria-label="" >Student Living</a></li>
+      <li role="menuitem"><a href="#" aria-label="" >Residental Stories</a></li>
+      <li role="menuitem"><a href="#" aria-label="" >Rent Calculator</a></li>
+      <li role="menuitem"><a href="#" aria-label="" >Promotions</a></li>
+      <li role="menuitem"><a href="#" aria-label="" >Refer a Friend Programs</a></li>
+      <li role="menuitem"><a href="#" aria-label="" >Perks when Renting</a></li>
+      <li role="menuitem"><a href="#" aria-label="" >Community Engagement Experiences</a></li>
+    </ul>
+  </li>
+  <li role="menuitem"><a href="#" aria-label="">Investors</a></li>
+  <li role="menuitem"><a href="#" aria-label="">Blog</a></li>
+  <li role="menuitem"><a href="#" aria-label="">Careers</a></li>
+  <li role="menuitem" class="hasSubmenu">
+    <input id="AboutUs" type="checkbox" class="submenuCheckbox">
+    <label for="AboutUs">About Us</label>
+    <ul class="submenu-nav" aria-label="" role="menu">
+      <li role="menuitem"><a href="#" aria-label="" class="">Who We Are</a></li>
+      <li role="menuitem"><a href="#" aria-label="" class="">Experience Our Brands</a></li>
+      <li role="menuitem"><a href="#" aria-label="" class="">Affordability</a></li>
+      <li role="menuitem"><a href="#" aria-label="" class="">Sustainability</a></li>
+      <li role="menuitem"><a href="#" aria-label="" class="">Community Partnerships</a></li>
+      <li role="menuitem"><a href="#" aria-label="" class="">Safe, Security & Customner Service</a></li>
+      <li role="menuitem"><a href="#" aria-label="" class="">Our Team</a></li>
+    </ul>
+  </li>
+</ul>
+
+<script>
+  $('.submenuCheckbox').click(function(){
+    var parent = $(this).parent();
+    if(parent.hasClass('opened'))
+		{
+			parent.removeClass('opened');
+		} else {
+      parent.removeClass('opened');
+      $('.submenuCheckbox').parent().removeClass('opened');
+      $('.submenuCheckbox').not(this).prop('checked', false);
+      parent.addClass('opened');
+    }
+  });
+
+  $(window).scroll(function(event){
+			$('.submenuCheckbox').parent().removeClass('opened');
+      $('.submenuCheckbox').prop('checked', false);
+  });
+</script>

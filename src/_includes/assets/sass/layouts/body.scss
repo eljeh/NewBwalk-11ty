@@ -1,0 +1,45 @@
+@use '../abstracts/'as *;
+@forward '../base/design-tokens.scss';
+
+
+body {
+  display: grid;
+  grid-template: 'header' calc(100vh - var(--pg-title-h)) 'main' auto 'footer' var(
+      --footer-h
+    ) 'stickysearch' 1.6rem / auto;
+  grid-column-gap: 1.5em;
+
+  @include media-desktop {
+    grid-template: 'header' calc(100vh - var(--pg-title-h)) 'stickysearch' 1.6rem 'main' auto 'footer' var(
+        --footer-h
+      ) / auto;
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  .stickysearch {
+    grid-area: stickysearch;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+
+  &.en {
+    .fr {
+      display: none;
+    }
+  }
+
+  &.fr {
+    .en {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+body.scrollDisable {
+  &::-webkit-scrollbar {
+    width: 0.72rem;
+    background: var(--clr-banner-bg);
+  }
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+nav {
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}

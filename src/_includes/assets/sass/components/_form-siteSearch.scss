@@ -1,0 +1,131 @@
+@use '../abstracts/'as *;
+
+form.city-search {
+  display: flex;
+  position: relative;
+  @include fib-gap(0.5em);
+
+  .toggle-search {
+    display: none;
+  }
+
+  label {
+    flex: 1 0 320px;
+
+    &[for='city'] {
+      flex: 1 0 auto;
+      min-width: fit-content;
+    }
+
+    &[for='suitetype'] {
+      flex-shrink: 1;
+      flex-basis: 10ch;
+    }
+
+    &[for='price'] {
+      flex-shrink: 1;
+      flex-basis: 5ch;
+    }
+  }
+
+  &.opened {
+    padding: 0.25em 0;
+
+    .toggle-search {
+      display: none;
+    }
+
+    label[for='suitetype'],
+    label[for='price'] {
+      display: inline;
+    }
+
+    button[name='search'] {
+      position: unset;
+      background-color: #fefefe;
+      color: black;
+      .fas {
+        font-size: 1.75em;
+      }
+      .icon-text {
+        display: inline;
+      }
+    }
+  }
+}
+
+.stickysearch {
+  margin: 0.5em auto;
+  font-size: var(--fs-base);
+  position: absolute;
+  bottom: 0;
+
+  @include media-desktop {
+    position: relative;
+  }
+
+  &.stuck {
+    font-size: var(--fs-300);
+    top: 0.5em;
+    min-width: 42em;
+    max-width: 65vw !important;
+    position: sticky;
+
+    form.city-search {
+      align-items: center;
+
+      &.opened {
+        input {
+          font-size: var(--fs-base);
+          text-align: left;
+        }
+      }
+    }
+
+    .toggle-search {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      cursor: text;
+      opacity: 0;
+    }
+
+    label[for='city'] {
+      input {
+        text-align: center;
+        width: 100%;
+
+        &:focus {
+          text-align: left;
+        }
+
+        &:before {
+          content: 'What city would you like you next home to be in?';
+          font-weight: bold;
+          text-align: center;
+          position: absolute;
+          right: 0;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          padding: 0.5em;
+        }
+      }
+    }
+
+    label[for='suitetype'],
+    label[for='price'] {
+      display: none;
+    }
+
+    button[name='search'] {
+      position: absolute;
+      right: 6px;
+
+      .icon-text {
+        display: none;
+      }
+    }
+  }
+}

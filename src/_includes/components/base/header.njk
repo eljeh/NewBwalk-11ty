@@ -1,0 +1,30 @@
+<header>
+	<div id="banner" class="banner fixed">
+		{% include "components/nav/mainNavLogo.njk" %}
+		<input id="toggle" type="checkbox" class="menuCheckbox">
+		<nav>
+			{% include "components/nav/mainNav.njk" %}
+			{% include "components/nav/secNav.njk" %}
+		</nav>
+		{% include "components/menuToggle.njk" %}
+	</div>
+	{% include "components/hero.njk" %}
+</header>
+<div class="stickysearch">
+	{% include "components/citysearchForm.njk" %}
+</div>
+
+<script>
+	$('.menuCheckbox').click(function(){
+		if($('.city-search').hasClass('opened'))
+		{
+			$('.city-search').removeClass('opened');
+		}
+		if($('body').hasClass('scrollDisable'))
+		{
+			$('body').removeClass('scrollDisable')
+		} else (
+			$('body').addClass('scrollDisable')
+		)
+	});
+</script>

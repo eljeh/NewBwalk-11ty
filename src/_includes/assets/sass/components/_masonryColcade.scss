@@ -1,0 +1,42 @@
+@use '../abstracts/'as *;
+
+.masonry {
+  margin-bottom: var(--margin-b);
+  display: grid;
+  grid-template-columns: repeat(var(--col-count), 1fr);
+  grid-auto-rows: var(--row-size);
+  gap: var(--gap);
+
+  .mItem {
+    display: flex;
+    grid-column: var(--mi-col) / span var(--mi-colspan);
+    grid-row: var(--mi-row) / span var(--mi-rowspan);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    img {
+      flex-shrink: 0;
+      width: unset;
+      min-width: 100%;
+      max-width: unset;
+      min-height: 100%;
+      max-height: unset;
+    }
+  }
+}
+
+@include media-below-desktop {
+  .masonry {
+    --col-count: 2 !important;
+    --row-size: 50vh !important;
+
+    .mItem {
+      --mi-col: auto !important;
+      --mi-colspan: 1 !important;
+      --mi-row: auto !important;
+      --mi-rowspan: 1 !important;
+    }
+
+  }
+}

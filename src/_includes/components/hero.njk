@@ -1,0 +1,25 @@
+<div class="hero">
+	<div class="hero-copy">
+		Our well-established communities provide a place where our Residents feel a sense of love, security and belonging. Our spacious apartment rentals are more than just a place to live. They are a place you can call home. Discover what makes us so unique.
+	</div>
+
+	{% image "./src/img/uploads/brio_apartment_lobby_17-edit.jpg", "hero" , "1920", 'mx-auto'%}
+{# <picture>
+	<img alt="" class="mx-auto" loading="lazy" decoding="async" src="/img/uploads/280_wesley_2_revised-webhome.jpg" width="100" height="100" style="width:100%;height:100vh">
+	<img alt="" class="mx-auto" loading="lazy" decoding="async" src="/img/uploads/richmondtowers_apartments_5.jpg" width="100" height="100" style="width:100%;height:100vh">
+</picture> #}
+
+</div>
+
+
+<script>
+	window.onscroll = function() {heroImageScroll()};
+
+		function heroImageScroll() {
+			var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+			var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			var scrolled = (winScroll / height) * 400;
+			var heroImage = $('.hero picture');
+			heroImage.css('bottom', Math.ceil(-scrolled));
+	}
+</script>

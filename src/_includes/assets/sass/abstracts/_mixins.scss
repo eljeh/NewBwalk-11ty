@@ -1,0 +1,41 @@
+@use 'visuals'as *;
+@use 'breakpoints'as *;
+
+@mixin media-phone {
+  @media only screen and (min-width: $bp-mobile) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media only screen and (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin media-below-desktop {
+  @media only screen and (max-width: calc($bp-desktop - 1px)) {
+    @content;
+  }
+}
+
+@mixin fib-gap($spc) {
+  gap: $spc calc(#{$spc} * 1.618);
+}
+
+@mixin boxpadding($tb, $lr: $tb) {
+  padding-top: $tb;
+  padding-bottom: $tb;
+
+  @if $lr==$tb {
+    padding-left: calc(#{$tb} * 1.618);
+    padding-right: calc(#{$tb} * 1.618);
+  }
+
+  @if $lr !=$tb {
+    padding-left: $lr;
+    padding-right: $lr;
+  }
+
+
+}

@@ -1,0 +1,24 @@
+
+
+
+<div class="masonry">
+  <style>
+    .masonry {
+      --margin-b: {{ masonry.marginB }};
+      --col-count: {{ masonry.colCount }};
+      --row-size: {{ masonry.rowSize }};
+      --gap: {{ masonry.gap }};
+
+
+    }
+
+  </style>
+
+  {% for item in masonryItems %}
+    <div class="mItem" style="--mi-col: {{ item.micol }}; --mi-colspan: {{ item.micolspan}}; --mi-row: {{ item.mirow }}; --mi-rowspan: {{ item.mirowspan }};">
+      <img src="{{ item.imgsrc }}">
+    </div>
+  {% endfor %}
+
+</div>
+

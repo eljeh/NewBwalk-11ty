@@ -1,0 +1,193 @@
+@use '../abstracts/'as *;
+
+nav {
+  display: none;
+  align-items: center;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    & > li {
+      justify-content: center;
+      align-items: center;
+      &:after {
+        content: '';
+        height: 1px;
+        width: 100%;
+        background: var(--clr-corp-d2);
+        // background: linear-gradient(
+        //   90deg,
+        //   opacify(transparent, 0) 10%,
+        //   var(--clr-corp-d2) 20%,
+        //   var(--clr-corp-d2) 80%,
+        //   opacify(transparent, 0) 90%
+        // );
+        display: block;
+      }
+
+      .submenu-nav {
+        display: none;
+        gap: 0.5em;
+        margin-top: calc(var(--min-touch-s) / 2);
+
+        & > li {
+          justify-content: center;
+          &:after {
+            content: '';
+            height: 1px;
+            width: 100%;
+            background: var(--clr-corp-d1);
+            // background: linear-gradient(
+            //   90deg,
+            //   opacify(transparent, 0) 10%,
+            //   var(--clr-corp-d1) 20%,
+            //   var(--clr-corp-d1) 80%,
+            //   opacify(transparent, 0) 90%
+            // );
+            display: block;
+          }
+          a {
+            margin: 0.25em 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            max-width: 18ch;
+          }
+        }
+      }
+
+      &.opened {
+        .submenu-nav {
+          display: block;
+          @include media-desktop {
+            li {
+              display: block;
+            }
+          }
+        }
+      }
+
+      &.hasSubmenu {
+        flex-direction: column;
+        min-height: var(--min-touch-s);
+        .submenuCheckbox {
+          cursor: pointer;
+          position: absolute;
+          width: var(--min-touch-s);
+          opacity: 0;
+        }
+        label {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          min-height: var(--min-touch-s);
+        }
+        .submenu-nav {
+          .submenuCheckbox {
+            width: var(--min-touch-s);
+          }
+        }
+      }
+    }
+  }
+
+  @include media-desktop {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    ul {
+      flex-direction: row;
+      li {
+        display: flex;
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  &.scrolled {
+    nav {
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      li{
+        &:after {
+          // content: '';
+          // height: 1px;
+          // width: 100%;
+          // background: var(--clr-corp-d1);
+          // display: block;
+        }
+      }
+    }
+  }
+  &:not(.scrolled) {
+    @include media-desktop {
+      li {
+        label,
+        a {
+          background: var(--clr-corp-n);
+          @include boxpadding(var(--std-padding));
+          border-radius: var(--std-border-radius);
+          &:hover {
+            background: var(--clr-corp-d1);
+          }
+        }
+
+        &.hasSubmenu {
+          .submenu-nav {
+            display: block;
+            position: absolute;
+            top: 2em;
+            margin-top: 0;
+            padding-top: 2.1em;
+            li {
+              display: flex;
+              margin: -2em 0 0;
+              opacity: 0;
+              transition: all 0.25s cubic-bezier(1, 0.01, 0.67, 0.99);
+              &:after {
+                display: none;
+              }
+              a {
+                margin: 0.25em 0 0;
+                box-shadow: -1px 1px 6px 2px #00000042;
+              }
+            }
+          }
+          &:hover,
+          &.opened {
+            .submenu-nav {
+              display: block;
+              li {
+                display: flex;
+                margin: 0;
+                opacity: 1;
+                transition: all 0.75s cubic-bezier(0.71, 0, 0.51, 1.06);
+                &:after {
+                  display: none;
+                }
+                a {
+                  margin: 0.25em 0 0;
+                  box-shadow: -1px 1px 6px 2px #00000042;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@forward '../components/banner';
+@forward '../components/banner-nav';
+@forward '../components/mainNav';
+@forward '../components/menuToggle';
+@forward '../components/hero';
+
+header {
+  display: grid;
+  grid-template: 'banner' var(--banner-h) 'hero' auto / auto;
+
+  .banner {
+    grid-area: banner;
+  }
+
+  .hero {
+    grid-area: hero;
+  }
+
+  background: var(--clr-header-bg);
+  color: var(--clr-header-ft);
+  overflow: hidden;
+}

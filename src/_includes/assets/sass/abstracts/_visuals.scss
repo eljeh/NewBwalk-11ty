@@ -1,0 +1,190 @@
+//Break-Points
+$bp-mobile: 414px;
+$bp-desktop: 1080px;
+
+// $breakpoints: (
+//   small: 40em,
+//   medium: 65em
+// );
+
+$std-padding: 0.5rem;
+$border-radius: 0.5em;
+$border-thinkness: 3px;
+
+// Index Levels
+.header {
+  z-index: var(--z-header);
+}
+.banner {
+  z-index: var(--z-banner);
+}
+
+.menuCheckbox:checked ~ nav {
+  z-index: var(--z-checked-nav);
+}
+.mainNav {
+  z-index: var(--z-mainNav);
+}
+.secondary-nav {
+  z-index: var(--z-secondary-nav);
+}
+
+.hasSubmenu {
+  z-index: var(--z-hasSubmenu);
+}
+// .submenu-nav {
+//   z-index: var(--z-submenu-nav);
+// }
+
+.stickysearch {
+  z-index: var(--z-stickysearch);
+}
+.toggle-search {
+  z-index: var(--z-toggle-search);
+}
+.hero-copy {
+  z-index: var(--z-hero-copy);
+}
+
+//Animations
+
+.banner {
+  transition: height 0.25s cubic-bezier(0.49, 0.9, 0.58, 1) 0s;
+
+  .logo {
+    transition: top 0.4s cubic-bezier(0.49, 0.9, 0.58, 1) 0s;
+
+    .banner-logo {
+      transition: height 0.5s cubic-bezier(0.49, 0.9, 0.58, 1) 0s;
+    }
+  }
+
+  .main-nav,
+  .secondary-nav {
+    transition: transform 0.25s cubic-bezier(0.49, 0.9, 0.58, 1) 0s;
+  }
+
+  .menuToggle {
+    transition: top 0.25s cubic-bezier(0.49, 0.9, 0.58, 1) 0s;
+  }
+  .menuToggle {
+    transition: margin-top 0.15s linear 0s;
+  }
+  &.scrolled {
+    .menuToggle {
+      transition: margin-top 0.25s linear 0s;
+    }
+  }
+}
+
+//Link Animation
+a.underline-ani {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+      90deg,
+      opacify(transparent, 0) 10%,
+      var(--clr-banner-ft) 20%,
+      var(--clr-banner-ft) 80%,
+      opacify(transparent, 0) 90%
+    );
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.5s cubic-bezier(1, 0.25, 0, 0.75) 0s;
+  }
+
+  &:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+  }
+}
+
+//Banner Logo
+.tagline.draw {
+  .en {
+    .writing > * {
+      stroke: var(--logo-banner-clr);
+      stroke-width: 4px;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw 0.75s linear forwards;
+    }
+
+    .b {
+      animation-delay: 0.5s;
+    }
+
+    .b-line {
+      animation-delay: 1s;
+    }
+
+    .r {
+      animation-delay: 1.5s;
+    }
+
+    .inging {
+      animation-delay: 2s;
+    }
+
+    .dot1 {
+      animation-delay: 3.25s;
+    }
+
+    .dot2 {
+      animation-delay: 3.35s;
+    }
+
+    .you {
+      animation-delay: 3.5s;
+    }
+
+    .home {
+      animation-delay: 4s;
+    }
+  }
+
+  .tm {
+    opacity: 0;
+    animation: opacity 0.5s linear forwards;
+    animation-delay: 4.75s;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes opacity {
+  to {
+    opacity: 1;
+  }
+}
+
+// @keyframes toggle-brounce {
+//   0% {
+//     transform: translateY(0.4em);
+//   }
+
+//   100% {
+//     transform: translateY(0);
+//   }
+// }
+
+// @keyframes brounce {
+//   0% {
+//     transform: translateY(0.25em);
+//   }
+
+//   100% {
+//     transform: translateY(0);
+//   }
+// }

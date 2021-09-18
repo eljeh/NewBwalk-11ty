@@ -1,0 +1,13 @@
+@use '../abstracts/'as *;
+@include media-desktop {
+  .main-nav {
+    margin: auto;
+    transform: translateY(0);
+  }
+
+  .secondary-nav {
+    transform: translateY(0);
+    position: absolute;
+    right: 1rem;
+  }
+}

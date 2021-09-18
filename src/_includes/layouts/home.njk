@@ -1,0 +1,84 @@
+---
+layout: layouts/_base.njk
+masonry:
+  marginB: 0em
+  colCount: 5
+  rowSize: 20vh
+  gap: 10px;
+masonryItems:
+- imgsrc: https://source.unsplash.com/random/10
+  micol: 1
+  micolspan: 1
+  mirow: 1
+  mirowspan: 2
+- imgsrc: https://source.unsplash.com/random/20
+  micol: 2
+  micolspan: 2
+  mirow: 1
+  mirowspan: 2
+- imgsrc: https://source.unsplash.com/random/30
+  micol: 4
+  micolspan: 1
+  mirow: 1
+  mirowspan: 1
+- imgsrc: https://source.unsplash.com/random/40
+  micol: 4
+  micolspan: 1
+  mirow: 2
+  mirowspan: 1
+- imgsrc: https://source.unsplash.com/random/50
+  micol: 5
+  micolspan: 1
+  mirow: 1
+  mirowspan: 1
+- imgsrc: https://source.unsplash.com/random/60
+  micol: 5
+  micolspan: 1
+  mirow: 2
+  mirowspan: 1
+
+- imgsrc: https://source.unsplash.com/random/70
+  micol: 1
+  micolspan: 1
+  mirow: 3
+  mirowspan: 1
+- imgsrc: https://source.unsplash.com/random/80
+  micol: 2
+  micolspan: 1
+  mirow: 3
+  mirowspan: 1
+- imgsrc: https://source.unsplash.com/random/90
+  micol: 3
+  micolspan: 1
+  mirow: 3
+  mirowspan: 1
+- imgsrc: https://source.unsplash.com/random/100
+  micol: 1
+  micolspan: 2
+  mirow: 4
+  mirowspan: 1
+- imgsrc: https://source.unsplash.com/random/200
+  micol: 3
+  micolspan: 1
+  mirow: 4
+  mirowspan: 1
+
+- imgsrc: https://source.unsplash.com/random/410
+  micol: 4
+  micolspan: 2
+  mirow: 3
+  mirowspan: 2
+---
+
+<div class="pg-title">
+	<h1>
+		RENT YOUR NEXT APARTMENT
+		<span>Spacious Apartment Rentals and Townhomes</span>
+	</h1>
+</div>
+
+<section class="content fluid">
+	<h2 class="section-title text-center"></h2>
+	{% include "components/masonryColcade.njk" %}
+</section>
+

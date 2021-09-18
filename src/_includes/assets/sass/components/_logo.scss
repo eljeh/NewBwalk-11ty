@@ -1,0 +1,208 @@
+@use '../abstracts'as *;
+
+.corp-logo {
+
+  .living,
+  .communities,
+  .lifestyle {
+    display: none;
+  }
+
+  .living-block,
+  .communities-block,
+  .lifestyle-block {
+
+    .fr,
+    .en {
+      fill: var(--brand-block-fnt-clr);
+    }
+
+    .block {
+      stroke-width: 2;
+      stroke-miterlimit: 10;
+    }
+  }
+
+  .living-block {
+    .block {
+      fill: var(--living-brand-clr);
+      stroke: var(--brand-block-bdr-clr);
+    }
+  }
+
+  .communities-block {
+    .block {
+      fill: var(--communities-brand-clr);
+      stroke: var(--brand-block-bdr-clr);
+    }
+  }
+
+  .lifestyle-block {
+    .block {
+      fill: var(--lifestyle-brand-clr);
+      stroke: var(--brand-block-bdr-clr);
+    }
+  }
+
+  .tagline {
+    display: none;
+  }
+
+  &.colored {
+
+    .roof,
+    .boardwalk,
+    .tagline {
+      fill: var(--communities-brand-clr);
+    }
+  }
+
+  &.tagline {
+    .tagline {
+      display: inline;
+    }
+  }
+}
+
+.living-logo {
+
+  .communities,
+  .lifestyle,
+  .living-block,
+  .communities-block,
+  .lifestyle-block,
+  .tagline {
+    display: none;
+  }
+
+  .living {
+    display: inline;
+  }
+
+  &.knockout {
+    background: var(--living-brand-clr);
+
+    .roof,
+    .boardwalk,
+    .living,
+    .tagline {
+      fill: var(--knockout-clr);
+    }
+  }
+
+  &.colored {
+
+    .roof,
+    .boardwalk,
+    .living,
+    .tagline {
+      fill: var(--living-brand-clr);
+    }
+  }
+
+  &.tagline {
+    .tagline {
+      display: inline;
+      transform: translateY(-30px);
+    }
+  }
+}
+
+.communities-logo {
+
+  .living,
+  .lifestyle,
+  .living-block,
+  .communities-block,
+  .lifestyle-block,
+  .tagline {
+    display: none;
+  }
+
+  .communities {
+    display: inline;
+  }
+
+  &.knockout {
+    background: var(--communities-brand-clr);
+
+    .roof,
+    .boardwalk,
+    .communities,
+    .tagline {
+      fill: var(--knockout-clr);
+    }
+  }
+
+  &.colored {
+
+    .roof,
+    .boardwalk,
+    .communities,
+    .tagline {
+      fill: var(--communities-brand-clr);
+    }
+  }
+
+  &.tagline {
+    .tagline {
+      display: inline;
+      transform: translateY(-30px);
+    }
+  }
+}
+
+.lifestyle-logo {
+
+  .living,
+  .communities,
+  .living-block,
+  .communities-block,
+  .lifestyle-block,
+  .tagline {
+    display: none;
+  }
+
+  .lifestyle {
+    display: inline;
+  }
+
+  &.knockout {
+    background: var(--lifestyle-brand-clr);
+
+    .roof,
+    .boardwalk,
+    .lifestyle,
+    .tagline {
+      fill: var(--knockout-clr);
+    }
+  }
+
+  &.colored {
+
+    .roof,
+    .boardwalk,
+    .lifestyle,
+    .tagline {
+      fill: var(--lifestyle-brand-clr);
+    }
+  }
+
+  &.tagline {
+    .tagline {
+      display: inline;
+      transform: translateY(-30px);
+    }
+  }
+}
+
+.tagline {
+  .writing {
+    fill: none;
+    stroke: #000000;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+  }
+}

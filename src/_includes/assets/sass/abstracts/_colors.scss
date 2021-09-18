@@ -1,0 +1,86 @@
+$white: hsl(0, 0%, 100%);
+$white-a15: hsla(0, 0%, 100%, 0.15);
+$white-a11: hsla(0, 0%, 100%, 0.11);
+$black: hsl(0, 0%, 0%);
+$black-a15: hsla(0, 0%, 0%, 0.15);
+$black-a11: hsla(0, 0%, 0%, 0.11);
+
+// lifestyle
+$lifestyle-black: hsl(0deg 0% 0%); //#000000;
+$lifestyle-red: hsl(350deg 85% 42%); //#C8102E;
+$lifestyle-blue: hsl(202deg 100% 39%); //#0099FF;
+$lifestyle-silver: hsl(0deg 0% 70%); //#D3D3D3;
+
+// Communities
+$communities-blue: hsl(202deg 100% 39%); //#0099FF;
+$communities-black: hsl(0deg 0% 0%); //#000000;
+$communities-silver: hsl(0deg 0% 70%); //#D3D3D3;
+
+// living
+$living-blue: hsl(207deg 100% 27%); //#0047B3;
+$living-white: hsl(0deg 0% 100%); //#FFFFFF;
+
+$corp-brand-clr: hsl(219deg, 100%, 39%); //#0058fe;
+$corp-primary-clr: $lifestyle-black;
+$corp-accent-clr: $lifestyle-red;
+
+$lifestyle-primary-clr: $lifestyle-black;
+$lifestyle-secondary-clr: $lifestyle-red;
+$lifestyle-tertiary-clr: $lifestyle-blue;
+$lifestyle-quaternary-clr: $lifestyle-silver;
+
+$communities-primary-clr: $communities-blue; //#0099FF;
+$communities-secondary-clr: $communities-black; //#000000;
+$communities-tertiary-clr: $communities-silver; //#D3D3D3;
+
+$living-primary-clr: $living-blue; //#0047B3;
+$living-secondary-clr: $living-white; //#FFFFFF;
+$living-tertiary-clr: $communities-silver; //#D3D3D3;
+
+//$corp-brand-clr: hsl(219deg, 100%, 39%); //#0058fe;
+//$lifestyle-primary-clr: hsl(0deg, 0%, 0%); //#000000;
+//$lifestyle-secondary-clr: hsl(348deg, 100%, 47%); //#red;
+//$lifestyle-tertiary-clr: hsl(219deg, 100%, 39%); //#0058fe;
+// $communities-primary-clr: hsl(219deg, 100%, 39%); //#0058fe;
+// $communities-secondary-clr: hsl(0deg, 0%, 0%); //#000000;
+// $communities-tertiary-clr: hsl(216deg, 19%, 95%); //#EFF1F4 silver;
+// $living-primary-clr: hsl(232deg, 100%, 50%); //#0022FE;
+// $living-secondary-clr: hsl(0deg, 0%, 0%); //#000000;
+// $living-tertiary-clr: hsl(216deg, 19%, 95%); //#EFF1F4 silver;
+
+$colors: (
+  corp: (
+    l2: lighten($corp-brand-clr, 20%),
+    l1: lighten($corp-brand-clr, 10%),
+    n: $corp-brand-clr,
+    d1: darken($corp-brand-clr, 10%),
+    d2: darken($corp-brand-clr, 20%),
+  ),
+  lifestyle: (
+    l2: lighten($lifestyle-primary-clr, 20%),
+    l1: lighten($lifestyle-primary-clr, 10%),
+    n: $lifestyle-primary-clr,
+    d1: darken($lifestyle-primary-clr, 10%),
+    d2: darken($lifestyle-primary-clr, 20%),
+    sec: $lifestyle-secondary-clr,
+    ter: $lifestyle-tertiary-clr,
+  ),
+  communities: (
+    l2: lighten($communities-primary-clr, 20%),
+    l1: lighten($communities-primary-clr, 10%),
+    n: $communities-primary-clr,
+    d1: darken($communities-primary-clr, 10%),
+    d2: darken($communities-primary-clr, 20%),
+    sec: $communities-secondary-clr,
+    ter: $communities-tertiary-clr,
+  ),
+  living: (
+    l2: lighten($living-primary-clr, 20%),
+    l21: lighten($living-primary-clr, 10%),
+    n: $living-primary-clr,
+    d1: darken($living-primary-clr, 10%),
+    d2: darken($living-primary-clr, 20%),
+    sec: $living-secondary-clr,
+    ter: $living-tertiary-clr,
+  ),
+);

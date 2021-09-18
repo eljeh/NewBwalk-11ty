@@ -1,0 +1,56 @@
+@use '../abstracts/'as *;
+
+form {
+  display: grid;
+}
+
+form label span {
+  display: inline-block;
+  transform: translate(0.5em, 0.75em);
+  background: var(--clr-form-bg);
+  padding: 0 0.5em;
+}
+
+input,
+textarea,
+button {
+  @include boxpadding(var(--std-padding));
+  border-radius: var(--input-bg-rd);
+
+  &:focus {
+    border-radius: var(--input-bg-rd);
+  }
+
+  &::focus-visible {
+    -moz-outline-radius: var(--input-bg-rd);
+  }
+}
+
+input,
+textarea {
+  min-height: var(--min-touch-s);
+  width: 100%;
+  background-color: #fefefe;
+  box-shadow: inset 0px 0px 17px 14px #00000004;
+  border: 2px solid #d1d1d1;
+}
+
+.clickable,
+button {
+  min-height: var(--min-touch-s);
+  min-width: var(--min-touch-s);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+button {
+  color: white;
+  border: 0;
+  box-shadow: 0px 0px 7px 1px #00000042;
+
+  &.primary {
+    background-color: var(--clr-primary);
+  }
+}

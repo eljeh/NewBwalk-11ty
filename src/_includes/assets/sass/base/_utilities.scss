@@ -1,0 +1,137 @@
+// $spacer: 4px !default;
+// $spacer-x: $spacer !default;
+// $spacer-y: $spacer !default;
+$spacer-x: 1.618vw !default;
+$spacer-y: 1vh !default;
+
+$spacers: (0: (x: 0,
+    y: 0,
+  ),
+  sm: (x: ($spacer-x,
+    ),
+    y: ($spacer-y,
+    ),
+  ),
+  md: (x: ($spacer-x * 2,
+    ),
+    y: ($spacer-y * 2,
+    ),
+  ),
+  lg: (x: ($spacer-x * 4,
+    ),
+    y: ($spacer-y * 4,
+    ),
+  ),
+  xl: (x: ($spacer-x * 6,
+    ),
+    y: ($spacer-y * 6,
+    ),
+  ),
+  xxl: (x: ($spacer-x * 8,
+    ),
+    y: ($spacer-y * 8,
+    ),
+  ),
+) !default;
+
+@each $prop,
+$abbrev in (margin: m, padding: p) {
+
+  @each $size,
+  $lengths in $spacers {
+    $length-x: map-get($lengths, x);
+    $length-y: map-get($lengths, y);
+
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $length-y $length-x !important;
+    }
+
+    .#{$abbrev}t-#{$size} {
+      #{$prop}-top: $length-y !important;
+    }
+
+    .#{$abbrev}r-#{$size} {
+      #{$prop}-right: $length-x !important;
+    }
+
+    .#{$abbrev}b-#{$size} {
+      #{$prop}-bottom: $length-y !important;
+    }
+
+    .#{$abbrev}l-#{$size} {
+      #{$prop}-left: $length-x !important;
+    }
+
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-right: $length-x !important;
+      #{$prop}-left: $length-x !important;
+    }
+
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-top: $length-y !important;
+      #{$prop}-bottom: $length-y !important;
+    }
+  }
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.d-flex {
+  display: flex;
+
+  &.fw-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.row-wrap.w-3>* {
+  min-width: 360px;
+}
+
+.align-center {
+  align-self: center;
+}
+
+.column {
+  flex-direction: column;
+
+  &-r {
+    flex-direction: column-reverse;
+  }
+}
+
+.row {
+  flex-direction: row;
+
+  &-r {
+    flex-direction: row-reverse;
+  }
+}
+
+.items-center {
+  display: grid;
+  place-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.content>*+* {
+  padding-top: 1.618em;
+}
+
+.row-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}

@@ -1,0 +1,208 @@
+@use '../abstracts/'as *;
+
+.stickysearch {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  @include boxpadding(1em);
+  background: black;
+
+  form.city-search {
+    @include fib-gap(1em);
+    position: relative;
+
+    .toggle-search {
+      margin: 0;
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      cursor: text;
+      opacity: 0;
+    }
+
+    label[for='city'] {
+      input {
+        text-align: center;
+        width: 100%;
+
+        &:focus {
+          text-align: left;
+        }
+      }
+      &::before {
+        content: var(--cityString);
+        font-weight: bold;
+        text-align: center;
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        padding: 0.5em 3em 0.5em 0.75em;
+        background: white;
+        border-radius: var(--input-bg-rd);
+      }
+    }
+
+    label[for='suitetype'],
+    label[for='price'] {
+      display: none;
+    }
+
+    button[name='search'] {
+      position: absolute;
+      right: 0;
+
+      .icon-text {
+        display: none;
+      }
+      .fas {
+        font-size: 1.5em;
+      }
+    }
+
+    &.opened {
+      .toggle-search {
+        display: none;
+      }
+
+      label[for='city'] {
+        input {
+          text-align: left;
+        }
+        &::before {
+          display: none;
+        }
+      }
+
+      label[for='suitetype'],
+      label[for='price'] {
+        display: inline;
+      }
+
+      button[name='search'] {
+        position: relative;
+        .icon-text {
+          display: inline;
+        }
+        .fas {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+
+  @include media-desktop {
+    position: unset;
+    bottom: unset;
+    width: auto;
+    margin: 0.5em auto;
+    font-size: var(--fs-base);
+    @include boxpadding(0, 1em);
+    background: transparent;
+    form.city-search {
+      display: flex;
+      position: relative;
+      @include fib-gap(0.5em);
+
+      .toggle-search {
+        display: none;
+      }
+
+      label {
+        flex: 1 0 320px;
+
+        &[for='city'] {
+          flex: 1 0 auto;
+          min-width: fit-content;
+        }
+
+        &[for='suitetype'] {
+          flex-shrink: 1;
+          flex-basis: 10ch;
+        }
+
+        &[for='price'] {
+          flex-shrink: 1;
+          flex-basis: 5ch;
+        }
+      }
+    }
+
+    &.stuck {
+      top: 0.75em;
+      min-width: 42em;
+      max-width: 65vw !important;
+      position: sticky;
+
+      form.city-search {
+        align-items: center;
+        .toggle-search {
+          //z-index: 1;
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          cursor: text;
+          opacity: 0;
+        }
+
+        label[for='city'] {
+          input {
+            width: 100%;
+            &::placeholder {
+              font-weight: bold;
+            }
+
+            &:focus {
+              text-align: left;
+            }
+          }
+        }
+
+        label[for='suitetype'],
+        label[for='price'] {
+          display: none;
+        }
+
+        button[name='search'] {
+          position: absolute;
+          border: 2px solid var(--clr-corp-l2);
+
+          .icon-text {
+            display: none;
+          }
+        }
+
+        &.opened {
+          padding: 0.25em 0;
+          margin-top: -0.25em;
+          .toggle-search {
+            display: none;
+          }
+          label[for='city'] {
+            input::placeholder {
+              font-weight: 400;
+            }
+          }
+          label[for='suitetype'],
+          label[for='price'] {
+            display: inline;
+          }
+
+          button[name='search'] {
+            position: unset;
+            background-color: #fefefe;
+            color: black;
+
+            .icon-text {
+              display: inline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

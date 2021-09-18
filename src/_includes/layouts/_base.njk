@@ -1,0 +1,11 @@
+<!doctype html>
+<html {% if contentname %} data-current="{{ contentname }}"{% endif %} lang="en">
+	{% include "components/base/head.njk" %}
+	<body class="{{contentname | slug}}-page en">
+		{% include "components/base/header.njk" %}
+		<main class="content">
+			{{ layoutContent | safe }}
+		</main>
+		{% include "components/base/footer.njk" %}
+	</body>
+</html>

@@ -1,0 +1,93 @@
+
+<form name="city search" method="POST" class="city-search" autocomplete="off">
+
+  <input id="toggle-search" type="checkbox" name="toggle-search" aria-label="Toggle Search" class="toggle-search">
+
+  <label for="city" title="Search by City">
+    <span class="sr-only">City</span>
+    <input id="city" type="text" name="city" placeholder="Enter a City" required>
+  </label>
+
+  <label for="suitetype" title="suitetype">
+    <span class="sr-only">bedroom</span>
+    <input id="bedroom" type="text" name="bedroom" placeholder="All Suite Types">
+  </label>
+
+  <label for="price">
+    <span class="sr-only">Price</span>
+    <input id="Price" type="text" name="Price" placeholder="All Prices">
+  </label>
+
+  <button type="submit" name="search" class="primary">
+    <i class="fas fa-search-location"></i>
+    <span class="icon-text">Search</span>
+  </button>
+
+</form>
+
+<script>
+
+	var logoTagLine = $('.banner-logo .tagline')
+	var cityString = 'What city would you like your next home to be in?'
+	var root = document.querySelector(':root').style;
+	//var root = document.querySelector('label[for=city]::before').style;
+
+	window.onload = function () {
+	root.setProperty('--cityString', cityString);
+		if (getViewportWidth() > 1023) {
+			$('.city-search').addClass("opened");
+			$('#city').attr("placeholder", "Enter a City");
+		} 
+	};
+
+	window.onresize = function () {
+		root.setProperty('--cityString', cityString);
+		if (getViewportWidth() > 1023) {
+			$('.city-search').addClass("opened");
+			$('#city').attr("placeholder", "Enter a City");
+		} 
+	};
+
+  $('.toggle-search').click(function(){
+      $('.city-search').addClass("opened");
+      $('#city').focus();
+			$('#city').attr("placeholder", "Enter a City");
+  });
+
+  $(window).scroll(function(event){
+    if (getViewportWidth() < 1023) {
+      if ($(this).scrollTop() > 50) {
+				$('.city-search').removeClass("opened");
+			}
+    };
+    if ($(this).scrollTop() > 50) {
+			$('#banner').addClass('scrolled');
+			logoTagLine.removeClass('draw');
+		} else {
+			$('#banner').removeClass('scrolled');
+			logoTagLine.addClass('draw');
+		}
+  });
+
+	// Observer to add STUCK class to CITY SEARCH
+	var stickysearch = document.querySelectorAll('.stickysearch');
+	var stickysearchOptions = { root: null, threshold: 0, rootMargin: "-120px 0px -120px" };
+	var logoTagLine = $('.banner-logo .tagline')
+	var stickysearchObserver = new IntersectionObserver(function (entries) {
+		entries.forEach(function (entry) {
+			if (entry.isIntersecting) {
+				entry.target.classList.remove('stuck');
+				$('.city-search').addClass('opened');
+				$('#city').blur()
+				$('#city').attr("placeholder", "Enter a City");
+			} else {
+				entry.target.classList.add('stuck');
+				logoTagLine.removeClass('draw');
+				$('.city-search').removeClass("opened");
+				$('#city').attr("placeholder", cityString);
+			}
+		});
+	}, stickysearchOptions);
+	stickysearch.forEach(function (stickysearch) { stickysearchObserver.observe(stickysearch); });
+
+</script>

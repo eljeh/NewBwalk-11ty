@@ -1,0 +1,19 @@
+@forward '../components/form.scss';
+@forward '../components/sticky-siteSearch.scss';
+@forward '../components/masonryColcade.scss';
+
+header,
+footer {
+  background: var(--clr-header-bg);
+  color: var(--clr-header-ft);
+}
+
+.banner {
+  background: var(--clr-banner-bg);
+  color: var(--clr-banner-ft);
+}
+
+body {
+  background: var(--body-bg-c);
+  color: var(--body-ft-c);
+}

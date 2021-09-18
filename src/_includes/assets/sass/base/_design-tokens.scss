@@ -1,0 +1,165 @@
+@use '../abstracts/'as *;
+
+:root {
+  // Font Family
+  --ff-header: #{$ff-montserrat};
+  --ff-body: #{$ff-montserrat};
+  --ff-cursive: #{$ff-cursive};
+
+  // Line Height
+  --lh-body: #{$lh-mobile};
+
+  @include media-desktop {
+    --lh-body: #{$lh-desktop};
+  }
+
+  //font Sizes
+  --fs-root: 24px;
+
+  @include media-desktop {
+    --fs-root: 38px;
+  }
+
+  --fs-default: calc(1.618vw + 2rem);
+  --fs-50: #{$fs-50}; //    m:56.0374px  |  d:78.7289px
+  --fs-75: #{$fs-75}; //    m:37.3583px  |  d:52.4859px
+  --fs-100: #{$fs-100}; //  m:28.0187px  |  d:39.3644px
+  --fs-112: #{$fs-112}; //  m:24.9055px  |  d:34.9906px
+  --fs-125: #{$fs-125}; //  m:22.415px   |  d:31.4915px
+  --fs-150: #{$fs-150}; //  m:18.6791px  |  d:26.243px
+  --fs-175: #{$fs-175}; //  m:16.0107px  |  d:22.494px
+  --fs-200: #{$fs-200}; //  m:14.0093px  |  d:19.6822px
+  --fs-250: #{$fs-250}; //  m:11.2075px  |  d:15.7458px
+  --fs-300: #{$fs-300}; //  m:9.33956px  |  d:13.1215px
+  --fs-350: #{$fs-350}; //  m:8.00534px  |  d:11.247px
+  --fs-400: #{$fs-400}; //  m:7.00467px  |  d:9.84111px
+
+  --fs-base: #{$fs-200}; //         m:16.0107px
+
+  --page-title: #{$fs-200}; //       m:56.0374px
+  --page-subtitle: #{$fs-250}; //    d:39.3644px
+  --section-title: #{$fs-112}; //   m:24.9055px
+  --article-title: #{$fs-150}; //   m:22.415px
+  --heading: #{$fs-200}; //         m:18.6791px
+
+  @include media-desktop {
+    --fs-base: #{$fs-350}; //       d:15.7458px
+    --page-title: #{$fs-200}; //    d:39.3644px
+    --page-subtitle: #{$fs-250}; //    d:39.3644px
+    --section-title: #{$fs-150}; // d:26.243px
+    --article-title: #{$fs-200}; // d:19.6822px
+    --heading: #{$fs-250}; //       d:15.7458px
+  }
+
+  // Font Weight
+  --fw-extralight: #{$extralight};
+  --fw-light: #{$light};
+  --fw-normal: #{$normal};
+  --fw-bold: #{$bold};
+  --fw-extraBold: #{$extraBold};
+
+  // Colours
+  @each $color, $shade in $colors {
+    @each $prop, $value in $shade {
+      --clr-#{$color}-#{$prop}: #{$value};
+    }
+  }
+
+  --clr-primary: var(--clr-corp-n);
+
+  // Assigned Colours
+  --clr-header-bg: var(--clr-corp-n);
+  --clr-header-ft: #{$white};
+
+  --clr-banner-bg: var(--clr-corp-n);
+  --clr-banner-ft: #{$white};
+  --clr-bannerNav-bg: var(--clr-corp-d1);
+
+  --clr-body-bg: #{$black};
+  --clr-body-ft: #{$white};
+
+  --clr-form-bg: #{$white};
+  --clr-form-ft: #{$black};
+  --clr-form-br: #{$black};
+  --clr-input-bg: #{$white};
+  --clr-input-ft: #{$black};
+  --clr-input-br: var(--clr-corp-l1);
+
+  //Standards
+  --std-padding: 0.5em;
+  --std-border-radius: 0.5em;
+  --std-border-thinkness: 2px;
+  --min-touch-s: 44px;
+
+  //Form Elements
+  --input-br-thk: var(--std-border-thinkness);
+  --input-bg-rd: #{$border-radius};
+
+  //z-index
+  --z-header: 1;
+  --z-banner: 3;
+  --z-menuToggle: 5;
+
+  --z-checked-nav: 2;
+  --z-mainNav: 2;
+  --z-secondary-nav: 2;
+
+  --z-hasSubmenu: 4;
+  --z-submenu-nav: 5;
+
+  --z-stickysearch: 2;
+  .stickysearch.stuck {
+    --z-stickysearch: 3;
+  }
+
+  --z-toggle-search: 1;
+
+  --z-hero-copy: 2;
+
+  // --z-header: 1;
+  // --z-banner: 3;
+  // --z-menuToggle: 4;
+
+  // --z-banner-nav: 4;
+  // --z-mainNav: 2;
+  // --z-secondary-nav: 2;
+
+  // --z-stickysearch: 3;
+  // --z-toggle-search: 1;
+
+  // --z-hero-copy: 2;
+
+  @include media-desktop {
+    --z-mainNav: 4;
+  }
+  --z-main: 0;
+  --z-footer: 0;
+
+  //Heights
+  --header-h: calc(100vh - var(--pg-title-h));
+  --footer-h: 20em;
+  --banner-h: 4em;
+  --hero-h: auto;
+  --min-hero-img-h: calc(100vh - var(--banner-h) - var(--pg-title-h) + 0.2em);
+  --pg-title-h: 10em;
+
+  --banner-logo-w: 120px;
+  --banner-logo-h: 60px;
+
+  @include media-desktop {
+    --banner-h: 6em;
+  }
+
+  //Logo
+  --logo-banner-clr: hsl(0deg 0% 100%); //#0022FE;
+  --logo-roof-clr: hsl(232deg 100% 50%); //#0022FE;
+  --logo-boardwalk-clr: hsl(232deg 100% 50%); //#0022FE;
+  --living-brand-clr: hsl(232deg 100% 50%); //#0022FE;
+  --communities-brand-clr: hsl(219deg 100% 39%); //#0058fe;
+  --lifestyle-brand-clr: hsl(0deg 0% 0%); //#000000;
+  --brand-block-fnt-clr: hsl(0deg 0% 100%); // #FFFFFF;
+  --brand-block-bdr-clr: hsl(0deg 0% 100%); // #FFFFFF;
+  --knockout-clr: hsl(0deg 0% 100%); // #FFFFFF;
+
+  --cityString: 'test';
+}
